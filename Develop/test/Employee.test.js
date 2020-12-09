@@ -28,3 +28,25 @@ test("Can get name via getName()", () => {
     const e = new Employee(testValue);
     expect(e.getName()).toBe(testValue);
 });
+
+test("Can get id via getId()", () => {
+    const testValue = 100;
+    const e = new Employee("Foo", testValue);
+    expect(e.getId()).toBe(testValue);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
