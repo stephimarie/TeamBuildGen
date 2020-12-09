@@ -4,4 +4,7 @@ class Employee {
         this.id = id;
         this.email = email;
     }
+    getName() {
+        return this.name;
+    }
 } 
