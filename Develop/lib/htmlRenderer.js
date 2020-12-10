@@ -19,4 +19,6 @@ const render = employees => {
         .map(intern => renderIntern(intern))
     );
 
-}
+    return renderMain(html.join(""));
+
+};
