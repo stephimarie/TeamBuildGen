@@ -10,4 +10,5 @@ const render = employees => {
         .filter(employee => employee.getRole() === "Manager")
         .map(manager => renderManager(manager))
     );
+    html.push(...employees)
 }
