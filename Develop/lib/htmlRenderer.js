@@ -52,3 +52,8 @@ const renderEngineer = engineer => {
     template = replacePlaceholders(template, "school", intern.getSchool());
     return template;
   };
+
+  const renderMain = html => {
+    const template = fs.readFileSync(path.resolve(templatesDir, "main.html"), "utf8");
+    return replacePlaceholders(template, "team", html);
+  };
