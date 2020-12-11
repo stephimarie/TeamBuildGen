@@ -28,7 +28,9 @@ const renderManager = manager => {
     template = replacePlaceholders(template, "name", manager.getName());
     template = replacePlaceholders(template, "email", manager.getEmail());
     template = replacePlaceholders(template, "officeNumber", manager.getOfficeNumber());
-    return template;
+    template = replacePlaceholders(template, "id", manager.getId());
+    template = replacePlaceholders(template, "officeNumber", manager.getOfficeNumber());
+  return template;
 };
 
 const renderInter = intern => {
