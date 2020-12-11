@@ -29,4 +29,9 @@ const renderManager = manager => {
     template = replacePlaceholders(template, "email", manager.getEmail());
     template = replacePlaceholders(template, "officeNumber", manager.getOfficeNumber());
     return template;
+};
+
+const renderInter = intern => {
+    let template = fs.readFileSync(path.resolve(templatesDir, "intern.html"), "utf8");
+    
 }
