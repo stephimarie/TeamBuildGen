@@ -57,3 +57,10 @@ const renderEngineer = engineer => {
     const template = fs.readFileSync(path.resolve(templatesDir, "main.html"), "utf8");
     return replacePlaceholders(template, "team", html);
   };
+
+  const replacePlaceholders = (template, placeholder, value) => {
+    const pattern = new RegExp("{{ " + placeholder + " }}", "gm");
+    return template.replace(pattern, value);
+  };
+
+  module.exports = render;
