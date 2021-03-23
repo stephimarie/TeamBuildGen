@@ -164,5 +164,28 @@ const isNumeric = async (input) => {
       choices: ["Yes, that information is correct", "No, there's a typo"],
     });
   };
+  // this will confirm with the user that the info we have recieved is correct
+  const confirmInternInfo = (responses) => {
+    return inquirer.prompt({
+      type: "list",
+      name: "isCorrect",
+      message:
+        "Confirm that the information you provided for " +
+        responses.empName +
+        " is correct before we add them to your roster? \nRole: " +
+        responses.role +
+        "\nName: " +
+        responses.empName +
+        "\nId: " +
+        responses.id +
+        "\nEmail: " +
+        responses.email +
+        "\nSchool: " +
+        responses.school +
+        "\n",
+      choices: ["Yes, that information is correct", "No, there's a typo"],
+    });
+  };
+  
   
   
