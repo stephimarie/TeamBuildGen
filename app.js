@@ -51,3 +51,15 @@ const isNumeric = async (input) => {
       .trim();
   };
   
+  const formatNumInput = async (number) => {
+    return number.trim().replace(/^0+/, "").replace(" ", "");
+  };
+  
+  const formatEmail = async (email) => {
+    return email.trim();
+  };
+  
+  const formatGithub = async (github) => {
+    return github.trim();
+  };
+  
