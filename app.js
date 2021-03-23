@@ -244,4 +244,34 @@ const isNumeric = async (input) => {
               responses.github
             );
             // add engineer object to the employeesArray
+            employeesArray.push(engineer);
+            console.log(
+              "Succesfully added " + responses.empName + " to your roster!"
+            );
+          } else {
+            console.log("Go ahead and answer these prompts once again");
+          }
+        } else {
+          // Prompts to verify if info provided by the user is correct
+          const internResponses = await confirmInternInfo(responses);
+  
+          if (internResponses.isCorrect === "Yes, that information is correct") {
+            // create a intern object using the Intern class
+            const intern = new Intern(
+              responses.empName,
+              responses.id,
+              responses.email,
+              responses.school
+            );
+            // add intern object to the employeesArray
+            employeesArray.push(intern);
+            console.log(
+              "Succesfully added " + responses.empName + " to your roster!"
+            );
+          } else {
+            console.log("Go ahead and answer these prompts once again");
+          }
+        }
+      }
+  
  
