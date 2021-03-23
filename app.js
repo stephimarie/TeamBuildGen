@@ -204,7 +204,21 @@ const isNumeric = async (input) => {
           filter: formatNumInput,
         },
       ]);
+      while (employeesArray.length < answer.numOfEmployees) {
+        // gather information about the development team members
+        const responses = await promptUser();
   
+        // Depending on the response, loop through questions to gather information and save to appropriate object
+        if (responses.role === "Manager") {
+          // Prompts to verify if info provided by the user is correct
+          const managerResponses = await confirmManagerInfo(responses);
   
-  
-  
+          if (managerResponses.isCorrect === "Yes, that information is correct") {
+            // create a manager object using the Manager class
+            const manager = new Manager(
+              responses.empName,
+              responses.id,
+              responses.email,
+              responses.officeNumber
+            );
+ 
