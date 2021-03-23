@@ -273,5 +273,26 @@ const isNumeric = async (input) => {
           }
         }
       }
+      console.log(employeesArray);
   
+      // The `render` function passes in the employeeArray containing all the employee objects and returns a block of HTML including templated divs for each employee.
+      const html = render(employeesArray);
+  
+      // check if the `output` folder exists and create it if it does not.
+      if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR);
+      }
+  
+      // create an HTML file using the HTML returned from the `render` function. It will write the HTML to a file named `team.html` in the `output` folder. I use the variable `outputPath` above to target this location.
+      await writeFileAsync(outputPath, html);
+  
+      console.log("Successfully wrote to team.html");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+  // call function
+  init(); 
+ 
  
