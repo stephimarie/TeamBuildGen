@@ -186,6 +186,25 @@ const isNumeric = async (input) => {
       choices: ["Yes, that information is correct", "No, there's a typo"],
     });
   };
+  // This Function will use inquirer to gather information about the team, create objects for each team member, and add them to the "employees" array using the respective "Manager", "Engineer", "Intern" classes
+  const init = async () => {
+    console.log(
+      "Let's begin generating your team roster!\nCarefully answer all of the prompts below\n----------------------------------------------\n"
+    );
+    try {
+      // gather the number of employees
+      const answer = await inquirer.prompt([
+        // prompt to get the total number of employees
+        {
+          type: "input",
+          name: "numOfEmployees",
+          message:
+            "How many members are on your team? (don't forget to include yourself)",
+          validate: isNumeric,
+          filter: formatNumInput,
+        },
+      ]);
+  
   
   
   
