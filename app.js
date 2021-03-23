@@ -221,4 +221,27 @@ const isNumeric = async (input) => {
               responses.email,
               responses.officeNumber
             );
+            // add manager object to the employeesArray
+            employeesArray.push(manager);
+            console.log(
+              "Succesfully added " + responses.empName + " to your roster!"
+            );
+          } else {
+            console.log("Go ahead and answer these prompts once again");
+          }
+        } else if (responses.role === "Engineer") {
+          // Prompts to verify if info provided by the user is correct
+          const engineerResponses = await confirmEngineerInfo(responses);
+  
+          if (
+            engineerResponses.isCorrect === "Yes, that information is correct"
+          ) {
+            // create a engineer object using the Engineer class
+            const engineer = new Engineer(
+              responses.empName,
+              responses.id,
+              responses.email,
+              responses.github
+            );
+            // add engineer object to the employeesArray
  
