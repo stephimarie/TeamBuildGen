@@ -63,3 +63,61 @@ const isNumeric = async (input) => {
     return github.trim();
   };
   
+  // array of questions that the user will be asked so we can gather information about their employees
+  const promptUser = () => {
+    return inquirer.prompt([
+      {
+        type: "input",
+        name: "empName",
+        message: "Enter a employee's name:",
+        validate: isString,
+        filter: formatTitleCase,
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Enter the employee's ID:",
+        validate: isNumeric,
+        filter: formatNumInput,
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Enter the employee's email address:",
+        validate: isString,
+        filter: formatEmail,
+      },
+      {
+        type: "list",
+        name: "role",
+        message: "Select the employee's role:",
+        choices: ["Manager", "Engineer", "Intern"],
+      },
+      // Each employee 'role' (manager, engineer, or intern) has slightly different information, so we have to ask different questions depending on the employee 'role' selected.
+      {
+        type: "input",
+        name: "officeNumber",
+        message: "Enter the manager's office number:",
+        when: (responses) => responses.role === "Manager",
+        validate: isNumeric,
+        filter: formatNumInput,
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "Enter the engineer's Github username:",
+        when: (responses) => responses.role === "Engineer",
+        validate: isString,
+        filter: formatGithub,
+      },
+      {
+        type: "input",
+        name: "school",
+        message: "Enter the intern's school:",
+        when: (responses) => responses.role === "Intern",
+        validate: isString,
+        content: formatTitleCase,
+      },
+    ]);
+  };
+  
